@@ -1,10 +1,17 @@
 *{
     margin: 0;
     padding: 0;
+    user-select: none;
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+
 }
 
 body{
-    background-image: url('../images/background_main.jpg');
+
+    background: linear-gradient(to top left, #001f3f, #FF7518);
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
@@ -16,15 +23,17 @@ body{
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%);
-    height: 650px;
-    width: 1050px;
+    height: 750px;
+    width: 1150px;
     text-align: center;
+    border: 2px black solid;
+    border-radius: 15px;
+    background-color: #e67e22;
 }
 
 #bodyOfGame{
     height: 100%;
     width: 75%;
-    background-color: black;
     position: relative;
     left: 0%;
     top: 0%;
@@ -34,7 +43,6 @@ body{
 #menuOfGame{
     height: 100%;
     width: 25%;
-    background-color: white;
     position: relative;
     left: 75%;
     padding-top: 25px;
@@ -46,7 +54,6 @@ body{
 #containerForCards{
     height: 80%;
     width: 100%;
-    background-color: green;
     position: relative;
     top: 100%;
     transform: translate( 0, -100%);
@@ -57,19 +64,40 @@ body{
 }
 
 .flashCards{
-    width: 70px;
-    height: 100px;
-    background-color: yellow;
+    width: 80px;
+    height: 110px;
+    background-color: #ffcd3c;
     display: inline-block;
     vertical-align: top;
     margin-top: 8px;
+    font-size: 3.5rem;
     line-height: 100px;
-    font-size: 2rem;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6),
                 0px 4px 6px rgba(0, 0, 0, 0.6),
                 inset 0px 0px 10px rgba(0, 0, 0, 0.6);
+    position: relative;
 }
 
+.elementMatched{
+    visibility: hidden;
+}
+.placeForImage{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    visibility: hidden;
+}
+.clicked{
+    visibility:visible;
+}
+
+.flashCards:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+}
 .marginForRightFlashCards{
     margin-left: 5px;
 }
@@ -80,9 +108,17 @@ body{
 }
 
 #countDownForGame{
-    background-color: red;
+    background-color: #ffcd3c;
     width: 180px;
     height: 110px;
+    font-size: 5rem;
+    line-height: 110px;
+    position: absolute;
+    top: 10%;
+    right: 18%;
+    font-family: 'Roboto', sans-serif;
+    border: black 2px solid;
+    color: black;
 }
 
 #currentScore{
@@ -92,21 +128,83 @@ body{
     height: 60px;
 }
 
-#divButtonForRestart{
-    background-color: brown;
+.divButtonForRestart{
+    background-color: #ffcd3c;
     margin-top: 15px;
     width: 100px;
     height: 50px;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 25px;
-
+    bottom: 95px;
+    color: black;
+    line-height: 50px;
+    font-size: 1.2rem;
+    transition: 0.2s ease-in-out;
+    border: black 2px solid;
 }
 
-#topThreeScores{
-    background-color: blue;
+.divButtonForRestart:hover {
+    cursor: pointer;
+    transform: translate(-50%) scale(1.03);
+}
+
+#lastScores{
+    background-color: #ffcd3c;
+    color: black;
+    border: black 2px solid;
+    padding-top: 10px;
+    font-size: 2rem;
     height: 300px;
     width: 70%;
     margin-top: 25px;
+    position: absolute;
+    top: 30%;
+    right: 15%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#buttonForClearScores{
+    background-color: #ffcd3c;
+    margin-top: 15px;
+    width: 100px;
+    height: 30px;
+    color: black;
+    line-height: 30px;
+    font-size: 1.2rem;
+    transition: 0.2s ease-in-out;
+    border: black 2px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buttonForClearScores:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+.score{
+    width: 80%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    color: black;
+    font-size: 1.8rem;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+#firstPlace{
+    margin-top: 10px;
+}
+
+#baner{
+    font-size: 3rem;
+    position: absolute;
+    right: 50%;
+    top: 12%;
+    transform: translate(50%, -50%);
 }
